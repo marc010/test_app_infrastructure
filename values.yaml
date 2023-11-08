@@ -1,0 +1,15 @@
+replicaCount: 2
+
+deployment:
+  name: nginx-netology
+  appPort: 80
+  portName: nginx-web
+
+image:
+  repository: cr.yandex/crppudjmh5lksthdg9q4/my_test
+  tag: "0.0.1"
+
+service:
+  name: test-app-svc
+  port: 80
+  nodePort: 30080
