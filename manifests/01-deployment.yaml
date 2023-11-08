@@ -21,7 +21,7 @@ spec:
         image: cr.yandex/crppudjmh5lksthdg9q4/my_test:0.0.1
         ports:
         - name: http
-          containerPort: {{ .Values.deployment.appPort }}
+          containerPort: 80
           protocol: TCP
         livenessProbe:
           httpGet:
