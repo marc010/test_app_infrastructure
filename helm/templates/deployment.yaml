@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  {{- $release := .Release.Name }}
+  name: {{ .Values.deployment.name }}{{ $release }}
+  labels:
+    app: netology-test-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: netology-test-app
+  template:
+    metadata:
+      labels:
+        app: netology-test-app
+    spec:
+      containers:
+      - name: netology-test-app
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        ports:
+        - name: http
+          containerPort: {{ .Values.deployment.appPort }}
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.deployment.appPort }}
+          initialDelaySeconds: 15
+      imagePullSecrets:
+      - name: myregistrykey 
