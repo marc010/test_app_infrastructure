@@ -6,7 +6,7 @@ deployment:
   portName: nginx-web
 
 image:
-  repository: cr.yandex/crppudjmh5lksthdg9q4/my_test
+  repository: cr.yandex/crppudjmh5lksthdg9q4/netology_test_app
     tag: 0.0.13
 
 service:
