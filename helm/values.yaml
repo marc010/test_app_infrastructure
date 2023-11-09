@@ -7,7 +7,7 @@ deployment:
 
 image:
   repository: cr.yandex/crppudjmh5lksthdg9q4/my_test
-  tag: "0.0.1"
+    tag: 0.0.13
 
 service:
   name: test-app-svc
